@@ -65,7 +65,7 @@ jobs: # Block of tasks(jobs)
     - name: Check Helm
       run:  helm version
 
-    - name: Print Job Level Vars
+    - name: Print Job and Step Level Vars
       run: |
         echo "Job Level VAR1: ${{ env.JOB_VAR1 }}"
         echo "Job Level VAR2: ${{ env.JOB_VAR2 }}"
