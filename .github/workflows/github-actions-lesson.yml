@@ -1,5 +1,5 @@
 
-name: alco24-CICD-piplenine
+name: github-actions-lesson-piplenine
 env: # Global environment variables that available for all jobs
   APP_NAME     : "Alcodostavka 24"
   PACKAGE_NAME : "alco24-ver-${{ github.sha }}" # github.sha - latest commit hash on current branch where workflow runs
