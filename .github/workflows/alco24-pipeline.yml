@@ -60,4 +60,4 @@ jobs: # Block of tasks(jobs)
     #   run: terraform version
 
     - name: Check Helm
-      run:  echo "Hello, World! from Prod"
+      run:  helm version
