@@ -1,4 +1,7 @@
 name: alco24-CICD-piplenine
+env: # Global environment variables that available for all jobs
+  APP_NAME     : "Alcodostavka 24"
+  PACKAGE_NAME : "alco24-ver-${{ github.sha }}" # github.sha - latest commit hash
 
 
 
@@ -7,17 +10,29 @@ on: # On what event pipline will start
     branches: 
       - main # Start pipeline after push on main branch
     
-jobs: # Block of tasks
+jobs: # Block of tasks(jobs)
 
-  alco24_build: # Name of the task
+  alco24_build: # Name of the job(task)
     runs-on: ubuntu-latest # Environment where the task will run. In Github Actions ubuntu-latest called runner.
+   
     steps: # List of steps in task
     - name: Print Hello Message # Description of the step
       run: echo "Hello, World!"
+
+    - name: Execute some commands
+      run: | # |` pipe used for run Multi-line command
+        echo "Start build"
+        echo "Build is done"
+        echo "Application Name: ${{ env.APP_NAME }} " # env.APP_NAME` Access to global environment variable
   
 
   alco24_push:
     runs-on: ubuntu-latest
+    needs: alco24_build # This is dependency on job (task) alco24_build. This job (task) will start only after alco24_build is finished.
+
     steps:
     - name: Print Hello Message
       run: echo "Hello, World! from Prod"
+
+    - name: Pushed package name
+      run : echo "Package name is ${{ env.PACKAGE_NAME }}"
