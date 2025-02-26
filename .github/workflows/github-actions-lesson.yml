@@ -30,6 +30,7 @@ jobs: # Block of tasks(jobs)
         echo "Start build"
         echo "Build is done"
         echo "Application Name: ${{ env.APP_NAME }} " # env.APP_NAME` Access to global environment variable
+        echo "Hiiiiii"
 
     - name: List curent folder
       run: ls -la
