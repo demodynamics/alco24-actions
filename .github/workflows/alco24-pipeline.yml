@@ -7,6 +7,17 @@ on: # On what event pipline will start
     branches: 
       - main # Start pipeline after push on main branch
     
-jobs:
-  alco24_build:
+jobs: # Block of tasks
+
+  alco24_build: # Name of the task
+    runs-on: ubuntu-latest # Environment where the task will run. In Github Actions ubuntu-latest called runner.
+    steps: # List of steps in task
+    - name: Print Hello Message # Description of the step
+      run: echo "Hello, World!"
+  
+
+  alco24_push:
     runs-on: ubuntu-latest
+    steps:
+    - name: Print Hello Message
+      run: echo "Hello, World! from Prod"
