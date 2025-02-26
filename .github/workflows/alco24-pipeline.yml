@@ -56,8 +56,8 @@ jobs: # Block of tasks(jobs)
     # - name: Check kubectl 
     #   run: kubectl version
 
-    - name: Check Terraform
-      run: terraform version
+    # - name: Check Terraform
+    #   run: terraform version
 
     - name: Check Helm
       run:  echo "Hello, World! from Prod"
