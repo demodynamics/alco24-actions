@@ -1,7 +1,7 @@
 name: alco24-CICD-piplenine
 env: # Global environment variables that available for all jobs
   APP_NAME     : "Alcodostavka 24"
-  PACKAGE_NAME : "alco24-ver-${{ github.sha }}" # github.sha - latest commit hash
+  PACKAGE_NAME : "alco24-ver-${{ github.sha }}" # github.sha - latest commit hash on current branch where workflow runs
 
 
 
@@ -24,6 +24,9 @@ jobs: # Block of tasks(jobs)
         echo "Start build"
         echo "Build is done"
         echo "Application Name: ${{ env.APP_NAME }} " # env.APP_NAME` Access to global environment variable
+
+    - name: List curent folder
+      run: ls -la
   
 
   alco24_push:
