@@ -47,17 +47,17 @@ jobs: # Block of tasks(jobs)
     - name: Pushed package name
       run : echo "Package name is ${{ env.PACKAGE_NAME }}"
 
+    - name: Check Zip
+      run: zip
+
     - name: Check AWS CLI
       run: aws --version
 
-    - name: Check kubectl 
-      run: kubectl version
+    # - name: Check kubectl 
+    #   run: kubectl version
 
     - name: Check Terraform
       run: terraform version
 
     - name: Check Helm
       run:  echo "Hello, World! from Prod"
-
-    - name: Check Zip
-      run: zip
