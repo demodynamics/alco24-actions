@@ -39,6 +39,9 @@ jobs: # Block of tasks(jobs)
   alco24_push:
     runs-on: ubuntu-latest
     needs: alco24_build # This is dependency on job (task) alco24_build. This job (task) will start only after alco24_build is finished.
+    env: # Job Level environment variables that available for onyly this job
+      JOB_VAR1: "Job Level variable 1"
+      JOB_VAR2: "Job Level variable 2"
 
     steps:
     - name: Print Hello Message
@@ -61,3 +64,11 @@ jobs: # Block of tasks(jobs)
 
     - name: Check Helm
       run:  helm version
+
+    - name: Print Job Level Vars
+      run: |
+        echo "Job Level VAR1: ${{ env.JOB_VAR1 }}"
+        echo "Job Level VAR2: ${{ env.JOB_VAR2 }}"
+        echo "Step Level Var: $STEP_VAR"
+      env: # Step Level environment variables that available for onyly this step
+        STEP_VAR : "Step level variable"
