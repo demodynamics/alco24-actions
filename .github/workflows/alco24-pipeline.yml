@@ -16,8 +16,13 @@ jobs: # Block of tasks(jobs)
     runs-on: ubuntu-latest # Environment where the task will run. In Github Actions ubuntu-latest called runner.
    
     steps: # List of steps in task
+
+    - name: Checkout code
+      uses: actions/checkout@v4 # Checkout (copy) code from repository. 
+      #uses: - If we running Github Actions script.
+
     - name: Print Hello Message # Description of the step
-      run: echo "Hello, World!"
+      run: echo "Hello, World!" # run: - if we running linux or windows command om job(task)
 
     - name: Execute some commands
       run: | # |` pipe used for run Multi-line command
@@ -27,6 +32,8 @@ jobs: # Block of tasks(jobs)
 
     - name: List curent folder
       run: ls -la
+
+
   
 
   alco24_push:
@@ -39,3 +46,18 @@ jobs: # Block of tasks(jobs)
 
     - name: Pushed package name
       run : echo "Package name is ${{ env.PACKAGE_NAME }}"
+
+    - name: Check AWS CLI
+      run: aws --version
+
+    - name: Check kubectl 
+      run: kubectl version
+
+    - name: Check Terraform
+      run: terraform version
+
+    - name: Check Helm
+      run:  echo "Hello, World! from Prod"
+
+    - name: Check Zip
+      run: zip
