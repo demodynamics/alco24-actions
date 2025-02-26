@@ -1,0 +1,12 @@
+name: alco24-CICD-piplenine
+
+
+
+on: # On what event pipline will start
+  push:
+    branches: 
+      - main # Start pipeline after push on main branch
+    
+jobs:
+  alco24_build:
+    runs-on: ubuntu-latest
